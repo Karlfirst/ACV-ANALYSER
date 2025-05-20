@@ -37,7 +37,6 @@ elif graph_type == "Barres":
 else:
     st.write("Aucun graphique sélectionné.")
 st.write("Merci d'avoir utilisé notre application Streamlit !")
-import plotly.express as px
 
 df_numeric = df.select_dtypes(include='number')
 columns = df_numeric.columns.tolist()
