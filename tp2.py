@@ -1,4 +1,4 @@
-#lien:http://localhost:8501/
+#lien:http://localhost:8501/ https://acv-analyser-kqvnlvww7ex3sgzjpaha2c.streamlit.app/
 
 #chargement les libraires
 import streamlit as st
@@ -19,10 +19,10 @@ graph_type = st.selectbox("Choissisez un type de graphique:",["Ligne","Barres","
 # Demande du nom de l'utilisateur
 user_name = st.text_input("👤 Entrez votre prénom :")
 if user_name:
-    st.success(f"Bonjour {user_name} 👋 Bienvenue dans l'application !")
+    st.success(f"Bonjour {user_name}  Bienvenue dans l'application !")
 
 # Chargement les données
-uploaded_file = st.file_uploader("📁 Téléchargez un fichier CSV", type=["csv"])
+uploaded_file = st.file_uploader(" Téléchargez un fichier CSV", type=["csv"])
 # Dispaly panda dataframe
 import pandas as pd
 df = pd.read_csv(uploaded_file)
@@ -69,7 +69,7 @@ if "Troponin" in df.columns:
     st.subheader("7 Corrélations catégorielles (via One-hot encoding)")
     st.markdown("Transformation des variables catégorielles en dummies pour corrélation")
 
-    df_dummies = pd.get_dummies(df)  # one-hot encoding sur所有字段（含数值和文本）
+    df_dummies = pd.get_dummies(df)  # one-hot encoding sur
     st.dataframe(df_dummies.head(10))
 
     st.markdown(" Features positively correlated with high Troponin:")
