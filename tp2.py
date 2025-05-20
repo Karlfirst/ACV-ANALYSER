@@ -42,12 +42,15 @@ import plotly.express as px
 df_numeric = df.select_dtypes(include='number')
 columns = df_numeric.columns.tolist()
 
-st.subheader(" Bonus : Choisissez deux variables à afficher")
-x_col = st.selectbox("Choisissez une variable pour l'axe X", options=columns, index=0)
-y_col = st.selectbox("Choisissez une variable pour l'axe Y", options=columns, index=1)
+if len(columns) >= 2:
+    x_col = st.selectbox("Choisissez une variable pour l'axe X", options=columns, index=0)
+    y_col = st.selectbox("Choisissez une variable pour l'axe Y", options=columns, index=1)
 
-fig = px.scatter(df_numeric, x=x_col, y=y_col)
-st.plotly_chart(fig)
+    import plotly.express as px
+    fig = px.scatter(df_numeric, x=x_col, y=y_col)
+    st.plotly_chart(fig)
+else:
+    st.warning("Pas assez de colonnes numériques pour générer un graphique.")
 # STEP 6 + STEP 7 : Analyse des corrélations (numériques + catégorielles)
 st.title("STEP 7 : Corrélations avec Troponin")
 
